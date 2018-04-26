@@ -1,6 +1,6 @@
 {
   "name": "json-to-pretty-yaml",
-  "description": "A node module to convert JSON to YAML.",
+  "description": "A node module to convert JSON to YAML",
   "contributors": [
     {
       "name": "Alex Crist",
