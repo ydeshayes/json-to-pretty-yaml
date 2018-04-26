@@ -1,7 +1,16 @@
 {
-  "author": "AJ ONeal <coolaj86@gmail.com> (http://coolaj86.com)",
-  "name": "json2yaml",
-  "description": "A commandline utility to convert JSON to YAML / YML",
+  "name": "json-to-pretty-yaml",
+  "description": "A node module to convert JSON to YAML.",
+  "contributors": [
+    {
+      "name": "Alex Crist",
+      "email": "alexecrist@gmail.com"
+    },
+    {
+      "name": "AJ ONeal",
+      "email": "coolaj86@gmail.com"
+    }
+  ],
   "keywords": [
     "yml",
     "yaml",
@@ -14,21 +23,12 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/coolaj86/json2yaml.git"
-  },
-  "bin": {
-    "json2yaml": "./cli.js",
-    "jsontoyaml": "./cli.js",
-    "jsontoyml": "./cli.js",
-    "json2yml": "./cli.js"
+    "url": "https://github.com/alexcrist/json-to-pretty-yaml.git"
   },
   "engines": {
     "node": ">= 0.2.0"
   },
-  "test": "echo 'error no test'; exit 1",
   "dependencies": {
-    "remedial": "1.x"
-  },
-  "devDependencies": {},
-  "preferGlobal": true
+    "remedial": "^1.0.7"
+  }
 }
