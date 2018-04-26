@@ -36,7 +36,7 @@
                 }
 
                 indentLevel = indentLevel.replace(/$/, '  ');
-                x.forEach(function(y) {
+                x.forEach(function(y, i) {
                     // TODO how should `undefined` be handled?
                     var handler = handlers[typeOf(y)];
 
@@ -44,14 +44,14 @@
                         throw new Error('what the crap: ' + typeOf(y));
                     }
 
-                    output += '\n' + indentLevel + '- ' + handler(y);
+                    output += '\n' + indentLevel + '- ' + handler(y, true);
 
                 });
                 indentLevel = indentLevel.replace(/  /, '');
 
                 return output;
             },
-            "object": function(x) {
+            "object": function(x, inArray) {
                 var output = '';
 
                 if (0 === Object.keys(x).length) {
@@ -60,7 +60,8 @@
                 }
 
                 indentLevel = indentLevel.replace(/$/, '  ');
-                Object.keys(x).forEach(function(k) {
+
+                Object.keys(x).forEach(function(k, i) {
                     var val = x[k],
                         handler = handlers[typeOf(val)];
 
@@ -77,7 +78,11 @@
                         throw new Error('what the crap: ' + typeOf(val));
                     }
 
-                    output += '\n' + indentLevel + k + ': ' + handler(val);
+                    if (!(inArray && i === 0)) {
+                        output += '\n' + indentLevel;
+                    }
+
+                    output += k + ': ' + handler(val);
                 });
                 indentLevel = indentLevel.replace(/  /, '');
 
