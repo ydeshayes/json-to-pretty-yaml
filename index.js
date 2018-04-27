@@ -51,7 +51,7 @@
 
                 return output;
             },
-            "object": function(x, inArray) {
+            "object": function(x, noReturn) {
                 var output = '';
 
                 if (0 === Object.keys(x).length) {
@@ -78,7 +78,7 @@
                         throw new Error('what the crap: ' + typeOf(val));
                     }
 
-                    if (!(inArray && i === 0)) {
+                    if (!(noReturn && i === 0)) {
                         output += '\n' + indentLevel;
                     }
 
@@ -94,7 +94,7 @@
             }
         };
 
-        return handlers[typeOf(data)](data) + '\n';
+        return handlers[typeOf(data)](data, true) + '\n';
     }
 
     module.exports.stringify = stringify;
