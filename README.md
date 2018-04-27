@@ -8,38 +8,44 @@
 
 ## Usage
 
-#### Code
+#### `index.js`
 
-```
+```javascript
+const fs = require('fs');
 const YAML = require('json-to-pretty-yaml');
+const json = require('input.json');
 
-const json = {
-  a: 1,
-  b: "yes",
-  c: true,
-  d: undefined,
-  e: [
-    1,
-    2,
+const data = YAML.stringify(json);
+fs.writeFile('output.yaml', data);
+```
+
+#### `input.json`
+
+```json
+{
+  "a": 1,
+  "b": 2,
+  "c": [
     {
-      f: 'cool'
+      "d": "cool",
+      "e": "new"
+    },
+    {
+      "f": "free",
+      "g": "soon"
     }
   ]
 }
-
-const yaml = YAML.stringify(json);
-console.log(yaml);
 ```
 
-#### Output
+#### `output.yaml`
 
-```
+```yaml
 a: 1
-b: "yes"
-c: true
-e:
-  - f: "cool"
-    g: "new"
-  - h: "free"
-    i: "soon"
+b: 2
+c:
+  - d: "cool"
+    e: "new"
+  - f: "free"
+    g: "soon"
 ```
