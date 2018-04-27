@@ -1,4 +1,4 @@
-# json-to-pretty-yaml
+# ♻️ json-to-pretty-yaml
 
 > A node module to convert JSON to pretty YAML
 
