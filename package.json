@@ -1,6 +1,18 @@
 {
   "name": "json-to-pretty-yaml",
   "description": "A node module to convert JSON to YAML",
+  "version": "1.2.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "remedial": "^1.0.7",
+    "remove-trailing-spaces": "^1.0.6"
+  },
+  "devDependencies": {
+    "jest": "^22.4.3"
+  },
   "contributors": [
     {
       "name": "Alex Crist",
@@ -18,17 +30,12 @@
     "cli",
     "util"
   ],
-  "version": "1.2.1",
-  "license": "Apache-2.0",
-  "main": "index.js",
+  "engines": {
+    "node": ">= 0.2.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/alexcrist/json-to-pretty-yaml.git"
   },
-  "engines": {
-    "node": ">= 0.2.0"
-  },
-  "dependencies": {
-    "remedial": "^1.0.7"
-  }
+  "license": "Apache-2.0"
 }

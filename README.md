@@ -49,3 +49,7 @@ c:
   - f: "free"
     g: "soon"
 ```
+
+## Testing
+
+`npm test`

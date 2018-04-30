@@ -2,6 +2,7 @@
     "use strict";
 
     var typeOf = require('remedial').typeOf;
+    var trimWhitespace = require('remove-trailing-spaces');
 
     function stringify(data) {
         var handlers, indentLevel = '';
@@ -51,7 +52,7 @@
 
                 return output;
             },
-            "object": function(x, noReturn) {
+            "object": function(x, inArray, rootNode) {
                 var output = '';
 
                 if (0 === Object.keys(x).length) {
@@ -59,7 +60,9 @@
                     return output;
                 }
 
-                indentLevel = indentLevel.replace(/$/, '  ');
+                if (!rootNode) {
+                    indentLevel = indentLevel.replace(/$/, '  ');
+                }
 
                 Object.keys(x).forEach(function(k, i) {
                     var val = x[k],
@@ -78,7 +81,7 @@
                         throw new Error('what the crap: ' + typeOf(val));
                     }
 
-                    if (!(noReturn && i === 0)) {
+                    if (!(inArray && i === 0)) {
                         output += '\n' + indentLevel;
                     }
 
@@ -94,7 +97,7 @@
             }
         };
 
-        return handlers[typeOf(data)](data, true) + '\n';
+        return trimWhitespace(handlers[typeOf(data)](data, true, true) + '\n');
     }
 
     module.exports.stringify = stringify;
