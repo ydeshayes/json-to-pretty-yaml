@@ -1,7 +1,7 @@
 {
   "name": "json-to-pretty-yaml",
   "description": "A node module to convert JSON to YAML",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "main": "index.js",
   "scripts": {
     "test": "jest"
