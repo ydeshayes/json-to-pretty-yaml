@@ -24,9 +24,19 @@
                 return x ? 'true' : 'false';
             },
             "string": function(x) {
-                // to avoid the string "true" being confused with the
-                // the literal `true`, we always wrap strings in quotes
-                return JSON.stringify(x);
+                var output = '|';
+                if (x.indexOf('\n') === -1) {
+                  return JSON.stringify(x);
+                }
+                var text = x.split(/\\n|\n/);
+                indentLevel = indentLevel.replace(/$/, '  ');
+                text.forEach(function (y) {
+                  output += '\n' + indentLevel + y;
+        
+                });
+                indentLevel = indentLevel.replace(/  /, '');
+        
+                return output;
             },
             "array": function(x) {
                 var output = '';
